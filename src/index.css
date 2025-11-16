@@ -1,0 +1,200 @@
+/* Force status text to white */
+.status-text,
+[class*="status"],
+span:contains("Normal"),
+span:contains("Average"),
+span:contains("Low"),
+span:contains("High"),
+span:contains("Moderate"),
+span:contains("Very High"),
+span:contains("Extreme") {
+  color: #fff !important;
+}
+/* Force #6C7993 text to white */
+[style*="color: #6C7993"],
+.text-6C7993 {
+  color: #fff !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 36 100% 60%;
+    --primary-foreground: 220 20% 15%;
+
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 50%;
+
+    --accent: 210 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 95%;
+    --ring: 36 100% 60%;
+
+    --radius: 1rem;
+    
+    --sun: 45 100% 60%;
+    --sun-glow: 45 100% 85%;
+    --rain: 210 80% 55%;
+    --cloud: 220 15% 70%;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 12%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 20% 16%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 20% 16%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 36 100% 55%;
+    --primary-foreground: 220 20% 15%;
+
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 220 15% 95%;
+
+    --muted: 220 20% 22%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 210 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 20%;
+    --ring: 36 100% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+  }
+
+  body {
+    @apply text-foreground;
+    position: relative;
+    overflow: auto;
+    background: url('/background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+    overflow: visible;
+  }
+
+  .glass-card, .card, .main-container, .container, .highlight-card {
+    background: transparent;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.1);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+  }
+
+  /* Glassmorphism utility */
+  .bg-glass {
+    background: transparent;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  h2, .text-muted-foreground, .text-gray-500, .text-gray-400, .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
+    color: #fff !important;
+  }
+
+  /* All inputs with glassmorphism */
+  input {
+    background: transparent !important;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.1);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    color: #fff !important;
+  }
+
+  input::placeholder {
+    color: rgba(255,255,255,0.5) !important;
+  }
+
+  /* All buttons with glassmorphism */
+  button {
+    background: transparent !important;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.1);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    color: #fff !important;
+  }
+
+  button:hover {
+    background: rgba(255,255,255,0.1) !important;
+  }
+}
