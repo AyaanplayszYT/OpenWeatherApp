@@ -17,6 +17,7 @@ import { AirQualityIndex } from "@/components/AirQualityIndex";
 import { PollenCount } from "@/components/PollenCount";
 import { UVIndexHistory } from "@/components/UVIndexHistory";
 import { HistoricalWeather } from "@/components/HistoricalWeather";
+import { PageSummarizer } from "@/components/PageSummarizer";
 import { useWeatherData } from "@/hooks/useWeatherData";
 
 const Index = () => {
@@ -209,6 +210,15 @@ const Index = () => {
               <MapPin className="w-5 h-5" />
               <span className="hidden sm:inline">My Location</span>
             </Button>
+
+            {/* AI Summary - Global Component */}
+            {weatherData && (
+              <PageSummarizer
+                weatherData={weatherData}
+                locationName={locationName}
+                unit={unit}
+              />
+            )}
           </div>
 
           <div className="flex items-center gap-4">
